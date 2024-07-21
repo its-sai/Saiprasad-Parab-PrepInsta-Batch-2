@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .navbar {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: black;
+        }
+        .logo{
+            height:60px;
+            width:140px;
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 40px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .navbar .nav-links li {
+            margin-left: 20px;
+        }
+        .navbar .nav-links a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        
+        .filter-section {
+            width: 20%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .filter-section h2 {
+            margin-top: 0;
+        }
+        .filter-section label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Product List */
+        .product-list {
+            width: 75%;
+            margin-left: 5%;
+        }
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-info h3 {
+            margin: 10px 0;
+        }
+        .product-info p {
+            color: #777;
+            margin: 5px 0;
+            text-align: center;
+        }
+        .product-info .price {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
+        }
+        .product-info .rating {
+            color: #ffa41c;
+        }
+        .product-info .stars {
+            display: inline-block;
+        }
+        .product-info .stars::before {
+            content: '★★★★★';
+            letter-spacing: 3px; 
+        }
+        .product-info button {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product-info button:hover {
+            background-color: #e68a00;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .filter-section, .product-list {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Cart</a></li>
+        </ul>
+    </nav>
+
+   
+    <div class="container">
+        
+        <aside class="filter-section">
+            <h2>Filters</h2>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="all">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home & Garden</option>
+            </select>
+            <label for="price-range">Price Range</label>
+            <select id="price-range" name="price-range">
+                <option value="all">All Prices</option>
+                <option value="0-50">$0 - $50</option>
+                <option value="51-100">$51 - $100</option>
+                <option value="101-200">$101 - $200</option>
+                <option value="200+">$200+</option>
+            </select>
+        </aside>
+        
+        <section class="product-list">
+            <div class="grid">
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/61bK6PMOC3L._AC_UF1000,1000_QL80_.jpg" alt="Product Image">
+                    <div class="product-info">
+                        <h3>Apple iPhone 14 (128 GB) - Blue</h3>
+                        <p>15.40 cm (6.1-inch) Super Retina XDR display. Advanced camera system for better photos in any light.</p>
+                        <div class="price">$49.99</div>
+                        <div class="rating">
+                            <div class="stars" style="--rating: 4;"></div>
+                        </div>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/81vxWpPpgNL._AC_UY218_.jpg" alt="Product Image">
+                    <div class="product-info">
+                        <h3>Samsung Galaxy S21 Ultra</h3>
+                        <p>Dynamic AMOLED 2X, 120Hz, HDR10+, 6.8 inches. Triple rear camera setup with 108 MP primary sensor</p>
+                        <div class="price">$89.99</div>
+                        <div class="rating">
+                            <div class="stars" style="--rating: 5;"></div>
+                        </div>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/61bXGHeYuhL._AC_UY218_.jpg" alt="Product Image">
+                    <div class="product-info">
+                        <h3>Dyson V11 Torque Drive Cordless Vacuum Cleaner</h3>
+                        <p>Dyson digital motor V11. Twice the suction of any cordless vacuum.</p>
+                        <div class="price">$129.99</div>
+                        <div class="rating">
+                            <div class="stars" style="--rating: 3.5;"></div>
+                        </div>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+
+/https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg/
