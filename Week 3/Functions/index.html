@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .task {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Fortune Teller -->
+    <div class="task">
+        <h2>Task 1: Fortune Teller</h2>
+        <button onclick="displayFortune()">Tell Fortune</button>
+        <div id="fortune-results" class="result"></div>
+    </div>
+
+    <!-- Task 2: Pet Age Calculator -->
+    <div class="task">
+        <h2>Task 2: Pet Age Calculator</h2>
+        <label for="pet-age">Pet Age:</label>
+        <input type="number" id="pet-age" placeholder="Enter your pet's age">
+        <label for="conversion-rate">Conversion Rate:</label>
+        <input type="number" id="conversion-rate" value="7" placeholder="Enter conversion rate">
+        <button onclick="displayPetAges()">Calculate Pet Age</button>
+        <div id="pet-age-results" class="result"></div>
+    </div>
+
+    <!-- Task 3: Rectangle Properties -->
+    <div class="task">
+        <h2>Task 3: Rectangle Properties</h2>
+        <label for="length">Length:</label>
+        <input type="number" id="length" placeholder="Enter length">
+        <label for="width">Width:</label>
+        <input type="number" id="width" placeholder="Enter width">
+        <button onclick="displayRectangleProperties()">Calculate Properties</button>
+        <div id="rectangle-results" class="result"></div>
+    </div>
+
+    <!-- Task 4: Coffee Consumption Estimator -->
+    <div class="task">
+        <h2>Task 4: Coffee Consumption Estimator</h2>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        <label for="cups-per-day">Cups per Day:</label>
+        <input type="number" step="0.1" id="cups-per-day" placeholder="Enter cups per day">
+        <button onclick="displayCoffeeConsumption()">Estimate Coffee Consumption</button>
+        <div id="coffee-results" class="result"></div>
+    </div>
+
+    <!-- Task 5: Distance Converter -->
+    <div class="task">
+        <h2>Task 5: Distance Converter</h2>
+        <label for="meters">Meters:</label>
+        <input type="number" id="meters" placeholder="Enter distance in meters">
+        <button onclick="convertMetersToFeet()">Convert to Feet</button>
+        <div id="meters-to-feet-results" class="result"></div>
+        
+        <label for="feet">Feet:</label>
+        <input type="number" id="feet" placeholder="Enter distance in feet">
+        <button onclick="convertFeetToMeters()">Convert to Meters</button>
+        <div id="feet-to-meters-results" class="result"></div>
+    </div>
+
+    <script>
+        // Task 1: Fortune Teller
+        function tellFortune(numChildren, partnerName, location, jobTitle) {
+            return `You will be a ${jobTitle} in ${location}, and married to ${partnerName} with ${numChildren} kids.`;
+        }
+
+        function displayFortune() {
+            const fortunes = [
+                tellFortune(2, 'Alice', 'New York', 'Software Engineer'),
+                tellFortune(3, 'Bob', 'Los Angeles', 'Graphic Designer'),
+                tellFortune(1, 'Charlie', 'Chicago', 'Doctor')
+            ];
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            document.getElementById('fortune-results').innerText = fortunes[randomIndex];
+        }
+
+        // Task 2: Pet Age Calculator
+        function calculatePetAge(petAge, conversionRate = 7) {
+            return `Your kitty is ${petAge * conversionRate} years old in cat years!`;
+        }
+
+        function displayPetAges() {
+            const petAge = document.getElementById('pet-age').value;
+            const conversionRate = document.getElementById('conversion-rate').value || 7;
+            const result = calculatePetAge(petAge, conversionRate);
+            document.getElementById('pet-age-results').innerText = result;
+        }
+
+        // Task 3: Rectangle Properties
+        function calcPerimeter(length, width) {
+            return 2 * (length + width);
+        }
+
+        function calcArea(length, width) {
+            return length * width;
+        }
+
+        function displayRectangleProperties() {
+            const length = document.getElementById('length').value;
+            const width = document.getElementById('width').value;
+            const perimeter = calcPerimeter(length, width);
+            const area = calcArea(length, width);
+            const result = `The perimeter is ${perimeter}\nThe area is ${area}`;
+            document.getElementById('rectangle-results').innerText = result;
+        }
+
+        // Task 4: Coffee Consumption Estimator
+        function calculateCoffeeSupply(age, cupsPerDay) {
+            const maxAge = 80;
+            const yearsRemaining = maxAge - age;
+            const totalCups = Math.round(cupsPerDay * 365 * yearsRemaining);
+            return `You will need ${totalCups} cups of coffee to keep you awake until the age of ${maxAge}.`;
+        }
+
+        function displayCoffeeConsumption() {
+            const age = document.getElementById('age').value;
+            const cupsPerDay = document.getElementById('cups-per-day').value;
+            const result = calculateCoffeeSupply(age, cupsPerDay);
+            document.getElementById('coffee-results').innerText = result;
+        }
+
+        // Task 5: Distance Converter
+        function metersToFeet(meters) {
+            return meters * 3.281;
+        }
+
+        function feetToMeters(feet) {
+            return feet * 0.3048;
+        }
+
+        function convertMetersToFeet() {
+            const meters = document.getElementById('meters').value;
+            const feet = metersToFeet(meters);
+            document.getElementById('meters-to-feet-results').innerText = `${meters} meters is equal to ${feet.toFixed(2)} feet.`;
+        }
+
+        function convertFeetToMeters() {
+            const feet = document.getElementById('feet').value;
+            const meters = feetToMeters(feet);
+            document.getElementById('feet-to-meters-results').innerText = `${feet} feet is equal to ${meters.toFixed(2)} meters.`;
+        }
+    </script>
+
+</body>
+</html>
