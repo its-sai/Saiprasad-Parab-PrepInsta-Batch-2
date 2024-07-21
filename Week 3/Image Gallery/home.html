@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <h1>Instagram</h1>
+            </div>
+            <div class="upload-btn">
+                    <label for=fileUpload>
+                        <i class="fas fa-upload"></i> Upload Image
+                        <input type="file" id="fileUpload" name="fileUpload" accept="image/*">
+                    </label>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i> Explore</a></li>
+                    <li><a href="#"><i class="fas fa-comment-dots"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-plus-square"></i> Create</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="gallery">
+            <div class="gallery-item">
+                <img src="post.jpeg" alt="Gallery Image 1" onclick="showImage(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="post2.jpg" alt="Gallery Image 2" onclick="showImage(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="post3.jpg" alt="Gallery Image 3" onclick="showImage(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="post4.jpg" alt="Gallery Image 1" onclick="showImage(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="post5.jpg" alt="Gallery Image 2" onclick="showImage(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="post6.jpg" alt="Gallery Image 3" onclick="showImage(this)">
+            </div>
+            <!-- More gallery items -->
+        </main>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        
+        <div class="modal-actions">
+            <a href="#"><i class="fas fa-thumbs-up"></i> Like</a>
+            <a href="#"><i class="fas fa-comment"></i> Comment</a>
+            <a href="#"><i class="fas fa-share"></i> Share</a>
+        </div>
+    </div>
+</body>
+</html>
